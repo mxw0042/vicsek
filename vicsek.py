@@ -8,7 +8,7 @@ from sklearn.preprocessing import MinMaxScaler
  
 #size of box
 L = 32.0
-rho = 3.0
+rho = 3.0     #3.0
 #number of particles (rho per unit of the box)
 N = int(rho*L**2)
 print("N",N)
@@ -20,7 +20,7 @@ v0 = 1.0
 #number of steps
 iterations = 10000
 #noise
-eta = 0.5
+eta = 0.2       # 0.5     #0.1
  
 #initialize positions and orientations
 #(N,2)
@@ -52,10 +52,10 @@ def animate(i):
 
     orient = np.angle(S)+eta*np.random.uniform(-np.pi, np.pi, size=N)
 
-    scaled_orient=np.interp(orient, (orient.min(), orient.max()), (0, +1))
-    # print(abs(sum(scaled_orient)/(N)))
-    order=np.var(orient)
-    print(abs(order-7.33438)/7.33438)
+    # scaled_orient=np.interp(orient, (orient.min(), orient.max()), (0, +1))
+    # # print(abs(sum(scaled_orient)/(N)))
+    # order=np.var(orient)
+    # print(abs(order-7.33438)/7.33438)
 
     # if i==499:
     #     return
